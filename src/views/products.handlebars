@@ -1,0 +1,11 @@
+<h1>{{message}}</h1>
+
+{{#each products}}
+ <ul>
+    <li>
+        <p>Nombre: {{this.nombre}} </p>
+        <p>{{this.precio}}</p>
+        <p>{{this.descripcion}}</p>
+    </li>
+ </ul>
+{{/each}}

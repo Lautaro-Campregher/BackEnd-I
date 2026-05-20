@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Auriculares Inalámbricos Bluetooth",
+    "brand": "Sony",
+    "price": 89999,
+    "description": "Auriculares inalámbricos con cancelación de ruido y hasta 30 horas de batería.",
+    "category": "Audio",
+    "stock": 15,
+    "status": true
+  },
+  {
+    "id": 2,
+    "name": "Smartphone Galaxy A55",
+    "brand": "Samsung",
+    "price": 599999,
+    "description": "Teléfono con pantalla AMOLED de 6.5 pulgadas y cámara triple.",
+    "category": "Celulares",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 3,
+    "name": "Notebook IdeaPad 3",
+    "brand": "Lenovo",
+    "price": 849999,
+    "description": "Notebook con procesador Ryzen 5, 16GB RAM y SSD de 512GB.",
+    "category": "Computación",
+    "stock": 8,
+    "status": true
+  },
+  {
+    "id": 4,
+    "name": "Mouse Gamer RGB",
+    "brand": "Logitech",
+    "price": 45999,
+    "description": "Mouse gamer ergonómico con iluminación RGB configurable.",
+    "category": "Periféricos",
+    "stock": 25,
+    "status": true
+  },
+  {
+    "id": 5,
+    "name": "Teclado Mecánico K552",
+    "brand": "Redragon",
+    "price": 79999,
+    "description": "Teclado mecánico compacto con switches red y retroiluminación.",
+    "category": "Periféricos",
+    "stock": 12,
+    "status": false
+  },
+  {
+    "id": 6,
+    "name": "Smart TV 50 Pulgadas 4K",
+    "brand": "LG",
+    "price": 749999,
+    "description": "Televisor 4K UHD con sistema operativo webOS y HDR.",
+    "category": "Televisores",
+    "stock": 6,
+    "status": true
+  },
+  {
+    "id": 7,
+    "name": "Consola PlayStation 5",
+    "brand": "Sony",
+    "price": 1299999,
+    "description": "Consola de última generación con SSD ultrarrápido y soporte 4K.",
+    "category": "Gaming",
+    "stock": 4,
+    "status": false
+  },
+  {
+    "id": 8,
+    "name": "Smartwatch Watch Fit",
+    "brand": "Huawei",
+    "price": 159999,
+    "description": "Reloj inteligente con monitoreo cardíaco y GPS integrado.",
+    "category": "Wearables",
+    "stock": 18,
+    "status": true
+  },
+  {
+    "id": 9,
+    "name": "Parlante Portátil Charge 5",
+    "brand": "JBL",
+    "price": 139999,
+    "description": "Parlante Bluetooth resistente al agua con sonido potente.",
+    "category": "Audio",
+    "stock": 14,
+    "status": true
+  },
+  {
+    "id": 10,
+    "name": "Cámara Instantánea Instax Mini",
+    "brand": "Fujifilm",
+    "price": 189999,
+    "description": "Cámara instantánea compacta ideal para fotos retro.",
+    "category": "Fotografía",
+    "stock": 9,
+    "status": false
+  }
+]
