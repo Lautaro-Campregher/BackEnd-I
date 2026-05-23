@@ -1,11 +1,17 @@
+<link rel="stylesheet" href="/css/products.css">
+{{>navbar}}
 <h1>{{message}}</h1>
 
 {{#each products}}
- <ul>
-    <li>
-        <p>Nombre: {{this.nombre}} </p>
-        <p>{{this.precio}}</p>
-        <p>{{this.descripcion}}</p>
-    </li>
- </ul>
+  {{#if (isStock this.stock 2)}}
+    <ul>
+      <li>
+        <p>{{this.name}}</p>
+        <p>{{this.price}}</p>
+        <p>{{this.description}}</p>
+        <p>{{this.stock}}</p>
+      </li>
+    </ul>
+  {{/if}}
+
 {{/each}}
