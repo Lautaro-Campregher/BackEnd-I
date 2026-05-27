@@ -98,5 +98,27 @@
     "category": "Fotografía",
     "stock": 9,
     "status": false
+  },
+  {
+    "name": "Consola PlayStation 5",
+    "brand": "Sony",
+    "price": 1299999,
+    "description": "Consola de última generación con SSD ultrarrápido y soporte 4K.",
+    "category": "Gaming",
+    "stock": 4,
+    "status": false,
+    "thumbnails": [],
+    "id": 11
+  },
+  {
+    "name": "Consola PlayStation 5",
+    "brand": "Sony",
+    "price": 1299999,
+    "description": "Consola de última generación con SSD ultrarrápido y soporte 4K.",
+    "category": "Gaming",
+    "stock": 4,
+    "status": false,
+    "thumbnails": [],
+    "id": 12
   }
 ]

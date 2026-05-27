@@ -4,7 +4,7 @@ import ProductManager from "../dao/ProductManager.js";
 const router = Router();
 
 //Mal puesto, a revisar
-router.use(express.json(), express.urlencoded({ extended: true }));
+router.use(json(), urlencoded({ extended: true }));
 
 router.get("/", async (req, res, next) => {
   try {
@@ -15,6 +15,16 @@ router.get("/", async (req, res, next) => {
     });
   } catch (error) {
     console.log(error);
+  }
+});
+
+router.post("/", async (req, res, next) => {
+  console.log(req.body);
+  try {
+    const newProduct = await ProductManager.createdProduct(req.body);
+    res.status(201).json(newProduct);
+  } catch (error) {
+    next(error);
   }
 });
 
