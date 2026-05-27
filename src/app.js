@@ -2,6 +2,8 @@ import express from "express";
 import { root } from "./utils.js";
 import { engine } from "express-handlebars";
 import ProductManager from "./dao/ProductManager.js";
+import productsRoutes from "./routes/products-routes.js";
+import viewsRoutes from "./routes/views-routes.js";
 
 const app = express();
 
@@ -22,25 +24,6 @@ app.listen(3000, () => {
 });
 
 app.use(express.static(root + "/public"));
-app.use(express.json(), express.urlencoded({ extended: true }));
 
-//CRUD
-//leer
-//primero un string y luego argumentos (handlers)
-app.get("/", async (req, res, next) => {
-  res.render("index", {
-    styles: "/css/index.css",
-  });
-});
-
-app.get("/products", async (req, res, next) => {
-  try {
-    const products = await ProductManager.getProducts();
-    res.render("products", {
-      products,
-      message: "Catalogo de Productos",
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+app.use("/", viewsRoutes);
+app.use("/products", productsRoutes);
