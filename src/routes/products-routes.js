@@ -21,6 +21,11 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   console.log(req.body);
   try {
+    if (req.body.status == "on") {
+      req.body.status = true;
+    } else {
+      req.body.status = false;
+    }
     const newProduct = await ProductManager.createdProduct(req.body);
     res.status(201).json(newProduct);
   } catch (error) {

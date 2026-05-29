@@ -1,0 +1,9 @@
+body {
+  background-color: aquamarine;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
