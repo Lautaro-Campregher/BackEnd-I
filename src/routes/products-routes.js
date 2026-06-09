@@ -18,8 +18,18 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:pid", async (req, res, next) => {
+  try {
+    const { pid } = req.params;
+    console.log(pid);
+    const requiredProduct = await ProductManager.getProductById(pid);
+    res.status(202).json(requiredProduct);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post("/", async (req, res, next) => {
-  console.log(req.body);
   try {
     if (req.body.status == "on") {
       req.body.status = true;
@@ -28,6 +38,29 @@ router.post("/", async (req, res, next) => {
     }
     const newProduct = await ProductManager.createdProduct(req.body);
     res.status(201).json(newProduct);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.put("/:pid", async (req, res, next) => {
+  try {
+    const { pid } = req.params;
+    const update = req.body;
+    const product = await ProductManager.updateProductById(pid, update, {
+      new: true,
+    });
+    res.status(200).json(product);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete("/:pid", async (req, res, next) => {
+  try {
+    const { pid } = req.params;
+    const product = await ProductManager.deleteProductById(pid);
+    res.status(200).json(product);
   } catch (error) {
     next(error);
   }

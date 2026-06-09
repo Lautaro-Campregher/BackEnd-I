@@ -26,4 +26,4 @@ app.listen(3000, () => {
 app.use(express.static(root + "/public"));
 
 app.use("/", viewsRoutes);
-app.use("/products", productsRoutes);
+app.use("/api/products", productsRoutes);

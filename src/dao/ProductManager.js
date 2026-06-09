@@ -31,6 +31,28 @@ class ProductManager extends GenericManager {
     });
     return newProduct;
   }
+
+  async updateProductById(pid, updateData) {
+    const products = await this.getProducts();
+    const requiredProductIndex = products.findIndex(
+      (product) => product.id == pid,
+    );
+    products[requiredProductIndex] = { ...updateData, id: parseInt(pid) };
+    await fs.writeFile(this.filePath, JSON.stringify(products), {
+      encoding: "utf-8",
+    });
+    return products[requiredProductIndex];
+  }
+
+  async deleteProductById(pid) {
+    const requiredProduct = await this.getProductById(pid);
+    let products = await this.getProducts();
+    products = products.filter((product) => product.id != pid);
+    await fs.writeFile(this.filePath, JSON.stringify(products), {
+      encoding: "utf-8",
+    });
+    return requiredProduct;
+  }
 }
 
 export default new ProductManager("products.json");
