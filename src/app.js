@@ -4,6 +4,7 @@ import { engine } from "express-handlebars";
 import ProductManager from "./dao/ProductManager.js";
 import productsRoutes from "./routes/products-routes.js";
 import viewsRoutes from "./routes/views-routes.js";
+import cartsRoutes from "./routes/carts-routes.js";
 
 const app = express();
 
@@ -27,3 +28,4 @@ app.use(express.static(root + "/public"));
 
 app.use("/", viewsRoutes);
 app.use("/api/products", productsRoutes);
+app.use("/api/carts", cartsRoutes);
