@@ -26,6 +26,9 @@ router.get("/:cid", async (req, res, next) => {
 
 router.post("/:cid/products/:pid", async (req, res, next) => {
   try {
+    const { cid, pid } = req.params;
+    const requiredCart = await CartManager.addProductToCart(cid, pid);
+    res.status(201).json(requiredCart);
   } catch (error) {
     next(error);
   }

@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import { GenericManager } from "./GenericManager.js";
+import ProductManager from "./ProductManager.js";
 
 class CartManager extends GenericManager {
   constructor(filePath) {
@@ -40,6 +41,23 @@ class CartManager extends GenericManager {
   async addProductToCart(cid, pid) {
     const carts = await this.#getCarts();
     const requiredCart = carts.find((carts) => carts.id == cid);
+    if (!requiredCart) throw new Error("Carrito no encontrado");
+
+    const { products } = requiredCart;
+
+    await ProductManager.getProductById(pid);
+
+    const productInCartIndex = products.findIndex(
+      (product) => product.id == pid,
+    );
+    if (productInCartIndex == -1)
+      products.push({ id: parseInt(pid), quantity: 1 });
+    else products[productInCartIndex].quantity += 1;
+
+    await fs.writeFile(this.filePath, JSON.stringify(carts), {
+      encoding: "utf-8",
+    });
+    return requiredCart;
   }
 }
 
