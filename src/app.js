@@ -6,6 +6,8 @@ import productsRoutes from "./routes/products-routes.js";
 import viewsRoutes from "./routes/views-routes.js";
 import cartsRoutes from "./routes/carts-routes.js";
 
+import { connectToMongo } from "./config/db.js";
+
 const app = express();
 
 app.engine(
@@ -22,6 +24,9 @@ app.set("views", root + "/views");
 
 app.listen(3000, () => {
   console.log("server ok");
+  connectToMongo()
+    .then(() => console.log("Conectado a DB"))
+    .catch(console.error);
 });
 
 app.use(express.static(root + "/public"));

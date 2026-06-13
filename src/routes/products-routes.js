@@ -1,5 +1,6 @@
 import { Router, json, urlencoded } from "express";
 import ProductManager from "../dao/ProductManager.js";
+import { productModel } from "../models/products.model.js";
 
 const router = Router();
 
@@ -8,7 +9,7 @@ router.use(json(), urlencoded({ extended: true }));
 
 router.get("/", async (req, res, next) => {
   try {
-    const products = await ProductManager.getProducts();
+    const products = await productModel.find({});
     res.render("products", {
       products,
       message: "Catalogo de Productos",
