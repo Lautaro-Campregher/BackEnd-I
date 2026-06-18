@@ -1,82 +1,222 @@
 [
   {
-    "id": 1,
+    "code": "AUD001",
     "name": "Auriculares Inalámbricos Bluetooth",
     "brand": "Sony",
     "price": 89999,
     "description": "Auriculares inalámbricos con cancelación de ruido y hasta 30 horas de batería.",
     "category": "Audio",
     "stock": 1,
-    "status": true
+    "status": true,
+    "thumbnails": []
   },
   {
-    "id": 2,
-    "name": "Smartphone Galaxy A55",
+    "code": "CEL001",
+    "name": "Smartphone Galaxy A56",
     "brand": "Samsung",
-    "price": 599999,
-    "description": "Teléfono con pantalla AMOLED de 6.5 pulgadas y cámara triple.",
-    "category": "Celulares",
-    "stock": 10,
-    "status": true
-  },
-  {
-    "id": 3,
-    "name": "Notebook IdeaPad 3",
-    "brand": "Lenovo",
-    "price": 849999,
-    "description": "Notebook con procesador Ryzen 5, 16GB RAM y SSD de 512GB.",
-    "category": "Computación",
-    "stock": 8,
-    "status": true
-  },
-  {
-    "id": 4,
-    "name": "Mouse Gamer RGB",
-    "brand": "Logitech",
-    "price": 45999,
-    "description": "Mouse gamer ergonómico con iluminación RGB configurable.",
-    "category": "Periféricos",
-    "stock": 25,
-    "status": true
-  },
-  {
-    "id": 5,
-    "name": "Teclado Mecánico K552",
-    "brand": "Redragon",
-    "price": 79999,
-    "description": "Teclado mecánico compacto con switches red y retroiluminación.",
-    "category": "Periféricos",
-    "stock": 12,
-    "status": false
-  },
-  {
-    "id": 6,
-    "name": "Smart TV 50 Pulgadas 4K",
-    "brand": "LG",
     "price": 749999,
-    "description": "Televisor 4K UHD con sistema operativo webOS y HDR.",
-    "category": "Televisores",
-    "stock": 6,
-    "status": true
+    "description": "Smartphone con pantalla AMOLED de 6.7 pulgadas y cámara de 50 MP.",
+    "category": "Celulares",
+    "stock": 8,
+    "status": true,
+    "thumbnails": []
   },
   {
-    "id": 7,
-    "name": "Consola PlayStation 5",
-    "brand": "Sony",
+    "code": "COM001",
+    "name": "Notebook IdeaPad 5",
+    "brand": "Lenovo",
     "price": 1299999,
-    "description": "Consola de última generación con SSD ultrarrápido y soporte 4K.",
+    "description": "Notebook con procesador Ryzen 7, 16 GB de RAM y SSD de 512 GB.",
+    "category": "Computación",
+    "stock": 5,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "ACC001",
+    "name": "Mouse Inalámbrico MX Master 3S",
+    "brand": "Logitech",
+    "price": 139999,
+    "description": "Mouse ergonómico inalámbrico con sensor de alta precisión.",
+    "category": "Accesorios",
+    "stock": 15,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "ACC002",
+    "name": "Teclado Mecánico K70 RGB",
+    "brand": "Corsair",
+    "price": 199999,
+    "description": "Teclado mecánico con switches Cherry MX Red e iluminación RGB.",
+    "category": "Accesorios",
+    "stock": 7,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "MON001",
+    "name": "Monitor UltraGear 27\"",
+    "brand": "LG",
+    "price": 589999,
+    "description": "Monitor Full HD de 27 pulgadas con tasa de refresco de 144 Hz.",
+    "category": "Monitores",
+    "stock": 6,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "WEA001",
+    "name": "Smartwatch Watch SE",
+    "brand": "Apple",
+    "price": 499999,
+    "description": "Reloj inteligente con monitoreo de actividad física y salud.",
+    "category": "Wearables",
+    "stock": 9,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "AUD002",
+    "name": "Parlante Flip 6",
+    "brand": "JBL",
+    "price": 159999,
+    "description": "Parlante portátil resistente al agua con sonido potente.",
+    "category": "Audio",
+    "stock": 11,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "TAB001",
+    "name": "Tablet iPad 10",
+    "brand": "Apple",
+    "price": 849999,
+    "description": "Tablet de 10.9 pulgadas con chip A14 Bionic.",
+    "category": "Tablets",
+    "stock": 4,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "ALM001",
+    "name": "Disco SSD 1TB",
+    "brand": "Kingston",
+    "price": 109999,
+    "description": "Unidad SSD SATA de 1 TB para mejorar el rendimiento del equipo.",
+    "category": "Almacenamiento",
+    "stock": 18,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "CMP001",
+    "name": "Memoria RAM 16GB DDR4",
+    "brand": "Corsair",
+    "price": 79999,
+    "description": "Módulo de memoria DDR4 de 16 GB a 3200 MHz.",
+    "category": "Componentes",
+    "stock": 20,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "CAM001",
+    "name": "Cámara GoPro HERO13",
+    "brand": "GoPro",
+    "price": 899999,
+    "description": "Cámara de acción 5.3K resistente al agua.",
+    "category": "Cámaras",
+    "stock": 3,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "GAM001",
+    "name": "Consola PlayStation 5 Slim",
+    "brand": "Sony",
+    "price": 1199999,
+    "description": "Consola de última generación con almacenamiento SSD ultrarrápido.",
     "category": "Gaming",
     "stock": 4,
-    "status": false
+    "status": true,
+    "thumbnails": []
   },
   {
-    "id": 8,
-    "name": "Smartwatch Watch Fit",
-    "brand": "Huawei",
-    "price": 159999,
-    "description": "Reloj inteligente con monitoreo cardíaco y GPS integrado.",
-    "category": "Wearables",
-    "stock": 18,
-    "status": true
+    "code": "GAM002",
+    "name": "Joystick Xbox Wireless",
+    "brand": "Microsoft",
+    "price": 119999,
+    "description": "Control inalámbrico compatible con Xbox Series y PC.",
+    "category": "Gaming",
+    "stock": 12,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "RED001",
+    "name": "Router WiFi 6 AX3000",
+    "brand": "TP-Link",
+    "price": 189999,
+    "description": "Router de alta velocidad compatible con WiFi 6.",
+    "category": "Redes",
+    "stock": 10,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "IMP001",
+    "name": "Impresora EcoTank L4260",
+    "brand": "Epson",
+    "price": 479999,
+    "description": "Impresora multifunción con sistema de tinta continuo.",
+    "category": "Impresoras",
+    "stock": 5,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "ACC003",
+    "name": "Webcam C920 HD Pro",
+    "brand": "Logitech",
+    "price": 99999,
+    "description": "Webcam Full HD ideal para videollamadas y streaming.",
+    "category": "Accesorios",
+    "stock": 14,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "ACC004",
+    "name": "Power Bank 20000mAh",
+    "brand": "Xiaomi",
+    "price": 69999,
+    "description": "Batería portátil con carga rápida y doble puerto USB.",
+    "category": "Accesorios",
+    "stock": 16,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "DRO001",
+    "name": "Drone Mini 4 Pro",
+    "brand": "DJI",
+    "price": 1799999,
+    "description": "Drone compacto con cámara 4K y sensores de obstáculos.",
+    "category": "Drones",
+    "stock": 2,
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "code": "TV001",
+    "name": "Televisor Smart TV 55\" 4K",
+    "brand": "Philips",
+    "price": 999999,
+    "description": "Smart TV de 55 pulgadas con resolución 4K UHD y HDR.",
+    "category": "Televisores",
+    "stock": 6,
+    "status": true,
+    "thumbnails": []
   }
 ]

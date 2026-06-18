@@ -3,7 +3,7 @@
 <h1>{{message}}</h1>
 
 {{#each products}}
-  {{#if (isStock this.stock 2)}}
+ 
     <ul>
       <li>
         <p>{{this.name}}</p>
@@ -12,6 +12,6 @@
         <p>{{this.stock}}</p>
       </li>
     </ul>
-  {{/if}}
+  
 
 {{/each}}

@@ -14,7 +14,7 @@ class ProductManager extends GenericManager {
 
   async getProductById(pid) {
     const products = await this.getProducts();
-    const requiredProduct = products.find((p) => p.id == pid);
+    const requiredProduct = products.find((p) => p.code == pid);
     if (requiredProduct) return requiredProduct;
     else throw new Error("Producto no encontrado");
   }
