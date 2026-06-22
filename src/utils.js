@@ -7,7 +7,7 @@ export const root = dirname(filename);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, root + "/public/img");
+    cb(null, root + "/public/img/products");
   },
 
   filename: (req, file, cb) => {
@@ -18,6 +18,6 @@ const storage = multer.diskStorage({
 export const uploader = multer({
   storage,
   limits: {
-    fileSize: 5000,
+    fileSize: 100000,
   },
 });

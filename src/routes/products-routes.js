@@ -1,6 +1,7 @@
 import { Router, json, urlencoded } from "express";
 import ProductManager from "../dao/ProductManager.js";
 import { productModel } from "../models/products.model.js";
+import { uploader } from "../utils.js";
 
 const router = Router();
 
@@ -27,15 +28,17 @@ router.get("/:pid", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", uploader.single("thumbnail"), async (req, res, next) => {
   try {
-    //if (req.body.status == "on") {
-    //  req.body.status = true;
-    //} else {
-    //  req.body.status = false;
-    //}
+    req.body.status = req.body.status === "on";
+
+    if (req.file) {
+      req.body.thumbnails = [req.file.filename];
+    }
+
     const newProduct = await productModel.create({ ...req.body });
-    res.status(201).json(newProduct);
+
+    res.redirect("/");
   } catch (error) {
     next(error);
   }
