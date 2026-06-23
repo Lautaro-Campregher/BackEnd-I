@@ -20,7 +20,6 @@ router.get("/", async (req, res, next) => {
 router.get("/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
-    console.log(pid);
     const requiredProduct = await productModel.findOne({ code: pid });
     res.status(202).json(requiredProduct);
   } catch (error) {
