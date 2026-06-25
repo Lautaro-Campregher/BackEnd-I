@@ -5,9 +5,6 @@ import { uploader } from "../utils.js";
 
 const router = Router();
 
-//Mal puesto, a revisar
-router.use(json(), urlencoded({ extended: true }));
-
 router.get("/", async (req, res, next) => {
   try {
     const products = await productModel.find({});

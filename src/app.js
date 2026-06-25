@@ -29,6 +29,9 @@ app.listen(3000, () => {
     .catch(console.error);
 });
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(root + "/public"));
 
 app.use("/", viewsRoutes);
