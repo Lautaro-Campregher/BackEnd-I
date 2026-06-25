@@ -9,14 +9,29 @@
 {{#each cart.products}}
 
 <li>
+    <img src="/img/products/{{product.thumbnails.[0]}}" 
+    alt="{{product.name}}"
+    width="200"
+    >
 
 <p>{{this.product.name}}</p>
 <p>${{this.product.price}}</p>
 <p>Cantidad: {{this.quantity}}</p>
+<p>Subtotal:${{this.subtotal}}</p>
+
+<button 
+class="delete-product" 
+data-product-id ="{{this.product._id}}"
+>
+Eliminar
+</button>
+
 
 </li>
 
 {{/each}}
+
+<h2>Total : ${{total}}</h2>
 
 </ul>
 
@@ -24,4 +39,7 @@
 
 <p>El carrito está vacío</p>
 
+
 {{/if}}
+<script src="/js/cart-detail.js"></script>
+

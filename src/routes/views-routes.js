@@ -58,8 +58,15 @@ router.get("/carts/:cid", async (req, res, next) => {
       });
     }
 
+    cart.products.forEach((item) => {
+      item.subtotal = item.product.price * item.quantity;
+    });
+
+    const total = cart.products.reduce((acc, item) => acc + item.subtotal, 0);
+
     res.render("cart-detail", {
       cart,
+      total,
       styles: "/css/cart-detail.css",
     });
   } catch (error) {
