@@ -40,6 +40,12 @@ router.post("/", uploader.single("thumbnail"), async (req, res, next) => {
 
     const newProduct = await productModel.create({ ...req.body });
 
+    const io = req.app.get("io");
+    const products = await productModel.find({}).lean();
+
+    io.emit("productsUpdated", products);
+    console.log("Evento productsUpdated enviado");
+
     res.redirect("/");
   } catch (error) {
     next(error);

@@ -74,4 +74,16 @@ router.get("/carts/:cid", async (req, res, next) => {
   }
 });
 
+router.get("/realtimeproducts", async (req, res, next) => {
+  try {
+    const products = await productModel.find({}).lean();
+    res.render("realtime-products", {
+      products,
+      styles: "/css/products.css",
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;

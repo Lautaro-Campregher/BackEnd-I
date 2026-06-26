@@ -5,6 +5,7 @@ import ProductManager from "./dao/ProductManager.js";
 import productsRoutes from "./routes/products-routes.js";
 import viewsRoutes from "./routes/views-routes.js";
 import cartsRoutes from "./routes/carts-routes.js";
+import { Server } from "socket.io";
 
 import { connectToMongo } from "./config/db.js";
 
@@ -22,11 +23,18 @@ app.engine(
 app.set("view engine", "handlebars");
 app.set("views", root + "/views");
 
-app.listen(3000, () => {
+const httpServer = app.listen(3000, () => {
   console.log("server ok");
   connectToMongo()
     .then(() => console.log("Conectado a DB"))
     .catch(console.error);
+});
+
+const io = new Server(httpServer);
+app.set("io", io);
+
+io.on("connection", (socket) => {
+  console.log("Cliente conectado");
 });
 
 app.use(express.json());
@@ -37,3 +45,11 @@ app.use(express.static(root + "/public"));
 app.use("/", viewsRoutes);
 app.use("/api/products", productsRoutes);
 app.use("/api/carts", cartsRoutes);
+
+app.use((error, req, res, next) => {
+  console.error(error);
+
+  res.status(500).json({
+    message: "Error interno del servidor",
+  });
+});
