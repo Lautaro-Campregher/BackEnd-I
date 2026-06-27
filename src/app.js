@@ -23,7 +23,7 @@ app.engine(
 app.set("view engine", "handlebars");
 app.set("views", root + "/views");
 
-const httpServer = app.listen(3000, () => {
+const httpServer = app.listen(8080, () => {
   console.log("server ok");
   connectToMongo()
     .then(() => console.log("Conectado a DB"))

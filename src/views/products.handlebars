@@ -4,28 +4,28 @@
 <h1>{{message}}</h1>
 
 <div id="products-container">
-
-{{#each products}}
-
 <ul>
+ {{#each products}}
+
+
   <li>
-    <p>{{this.name}}</p>
+    <p>{{this.title}}</p>
     <p>{{this.price}}</p>
     <p>{{this.description}}</p>
     <p>{{this.stock}}</p>
 
     <img
       src="/img/products/{{this.thumbnails.[0]}}"
-      alt="{{this.name}}"
+      alt="{{this.title}}"
       width="200"
     >
 
     <a href="/products/{{this._id}}">Ver detalle</a>
   </li>
+
+
+ {{/each}}
 </ul>
-
-{{/each}}
-
 </div>
 
 <script src="/socket.io/socket.io.js"></script>

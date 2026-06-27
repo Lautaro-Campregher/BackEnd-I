@@ -13,18 +13,18 @@ socket.on("productsUpdated", (products) => {
 
   container.innerHTML = "";
 
-  products.forEach((product) => {
-    container.innerHTML += `
-      <ul>
+  const html = products
+    .map(
+      (product) => `
         <li>
-          <p>${product.name}</p>
+          <p>${product.title}</p>
           <p>${product.price}</p>
           <p>${product.description}</p>
           <p>${product.stock}</p>
 
           <img
             src="/img/products/${product.thumbnails[0]}"
-            alt="${product.name}"
+            alt="${product.title}"
             width="200"
           >
 
@@ -32,7 +32,9 @@ socket.on("productsUpdated", (products) => {
             Ver detalle
           </a>
         </li>
-      </ul>
-    `;
-  });
+      `,
+    )
+    .join("");
+
+  container.innerHTML = `<ul>${html}</ul>`;
 });
