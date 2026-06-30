@@ -16,9 +16,15 @@ router.get("/form", (req, res) => {
 
 router.get("/products", async (req, res, next) => {
   try {
-    const products = await productModel.find({}).lean();
+    const { page } = req.query;
+    const pagination = await productModel.find({}).paginate({
+      limit: 2,
+      lean: true,
+      page,
+    });
+
     res.render("products", {
-      products,
+      pagination,
       message: "Catalogo de Productos",
       styles: "/css/products.css",
     });

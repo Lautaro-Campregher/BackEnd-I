@@ -5,12 +5,10 @@ import { productModel } from "../models/products.model.js";
 
 const router = Router();
 
-router.use(json(), urlencoded({ extended: true }));
-
 router.post("/", async (req, res, next) => {
   try {
     const newCart = await cartModel.create({ products: [] });
-    res.status(201).json(newCart);
+    res.status(201).json({ message: `Carrito ${newCart._id}creado con exito` });
   } catch (error) {
     next(error);
   }

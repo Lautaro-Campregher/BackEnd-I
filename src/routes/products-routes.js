@@ -57,7 +57,7 @@ router.put("/:pid", async (req, res, next) => {
     const { pid } = req.params;
     const update = req.body;
 
-    const product = await productModel.findOneAndUpdate({ code: pid }, update, {
+    const product = await productModel.findOneAndUpdate(pid, update, {
       new: true,
     });
 
@@ -70,7 +70,7 @@ router.put("/:pid", async (req, res, next) => {
 router.delete("/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
-    const product = await productModel.findOneAndDelete({ code: pid });
+    const product = await productModel.findOneAndDelete(pid);
     res.status(200).json(product);
   } catch (error) {
     next(error);

@@ -5,7 +5,7 @@
 
 <div id="products-container">
 <ul>
- {{#each products}}
+ {{#each pagination.docs}}
 
 
   <li>
@@ -26,6 +26,19 @@
 
  {{/each}}
 </ul>
+{{#if pagination.hasPrevPage}}
+  <a href="/products?page={{pagination.prevPage}}&limit={{pagination.limit}}">
+    ← Anterior
+  </a>
+{{/if}}
+
+Página {{pagination.page}} de {{pagination.totalPages}}
+-
+{{#if pagination.hasNextPage}}
+  <a href="/products?page={{pagination.nextPage}}&limit={{pagination.limit}}">
+    Siguiente →
+  </a>
+{{/if}}
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
