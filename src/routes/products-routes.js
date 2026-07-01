@@ -72,7 +72,12 @@ router.get("/:pid", async (req, res, next) => {
 
 router.post("/", uploader.single("thumbnail"), async (req, res, next) => {
   try {
-    req.body.status = req.body.status === "on";
+    if (req.body.status !== undefined) {
+      req.body.status =
+        req.body.status === true ||
+        req.body.status === "true" ||
+        req.body.status === "on";
+    }
 
     if (req.file) {
       req.body.thumbnails = [req.file.filename];
