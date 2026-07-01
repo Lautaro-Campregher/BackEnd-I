@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/cart-detail.css">
 {{>navbar}}
 
 <h1>Mi Carrito</h1>
@@ -33,11 +34,15 @@ Eliminar
 
 <h2>Total : ${{total}}</h2>
 
+<button id="clearCart">
+  Vaciar carrito
+</button>
+
 </ul>
 
 {{else}}
 
-<p>El carrito está vacío</p>
+<p class="empty-cart">El carrito está vacío.</p>
 
 
 {{/if}}

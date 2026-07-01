@@ -1,42 +1,57 @@
+<link rel="stylesheet" href="/css/form.css">
 {{>navbar}}
 
-<form action="/api/products" method="post" enctype="multipart/form-data">
+<h1>Crear Producto</h1>
 
-  <label for="">Codigo
-    <input type="text" name="code" /><br />
+<form action="/api/products" method="POST" enctype="multipart/form-data">
+
+  <label>
+    Código
+    <input type="text" name="code">
   </label>
 
-  <label for="">Nombre
-    <input type="text" name="name" /><br />
+  <label>
+    Título
+    <input type="text" name="title">
   </label>
 
-  <label for="">Marca
-    <input type="text" name="brand" /><br />
+  <label>
+    Marca
+    <input type="text" name="brand">
   </label>
 
-  <label for="">Precio
-    <input type="number" name="price" /><br />
+  <label>
+    Precio
+    <input type="number" name="price">
   </label>
 
-  <label for="">Descripcion
-    <input type="text" name="description" />
+  <label>
+    Descripción
+    <input type="text" name="description">
   </label>
 
-  <label for="">Categoria
-    <input type="text" name="category" />
+  <label>
+    Categoría
+    <input type="text" name="category">
   </label>
 
-  <label for="">Stock
-    <input type="number" name="stock" />
+  <label>
+    Stock
+    <input type="number" name="stock">
   </label>
 
-  <label for="">Disponible
-    <input type="checkbox" name="status" />
+  <label>
+    Disponible
+    <input type="checkbox" name="status">
   </label>
 
-  <label for="">Seleccionar archivo
-    <input type="file" name="thumbnail" />
+  <label>
+    Imagen
+    <input type="file" name="thumbnail">
   </label>
 
-  <button type="submit">Crear producto</button>
+  <button type="submit">
+    Crear producto
+  </button>
+
 </form>

@@ -7,8 +7,48 @@ const router = Router();
 
 router.get("/", async (req, res, next) => {
   try {
-    const products = await productModel.find({});
-    res.status(200).json(products);
+    const { page = 1, limit = 10, sort, query } = req.query;
+
+    const filter = {};
+
+    if (query) {
+      if (query === "true" || query === "false") {
+        filter.status = query === "true";
+      } else {
+        filter.category = query;
+      }
+    }
+
+    const options = {
+      page,
+      limit,
+      lean: true,
+    };
+
+    if (sort) {
+      options.sort = {
+        price: sort === "asc" ? 1 : -1,
+      };
+    }
+
+    const pagination = await productModel.paginate(filter, options);
+
+    res.status(200).json({
+      status: "success",
+      payload: pagination.docs,
+      totalPages: pagination.totalPages,
+      prevPage: pagination.prevPage,
+      nextPage: pagination.nextPage,
+      page: pagination.page,
+      hasPrevPage: pagination.hasPrevPage,
+      hasNextPage: pagination.hasNextPage,
+      prevLink: pagination.hasPrevPage
+        ? `/api/products?page=${pagination.prevPage}&limit=${limit}${sort ? `&sort=${sort}` : ""}${query ? `&query=${query}` : ""}`
+        : null,
+      nextLink: pagination.hasNextPage
+        ? `/api/products?page=${pagination.nextPage}&limit=${limit}${sort ? `&sort=${sort}` : ""}${query ? `&query=${query}` : ""}`
+        : null,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -24,7 +64,7 @@ router.get("/:pid", async (req, res, next) => {
         message: "Producto no encontrado",
       });
     }
-    res.status(202).json(requiredProduct);
+    res.status(200).json(requiredProduct);
   } catch (error) {
     next(error);
   }
@@ -46,7 +86,7 @@ router.post("/", uploader.single("thumbnail"), async (req, res, next) => {
     io.emit("productsUpdated", products);
     console.log("Evento productsUpdated enviado");
 
-    res.redirect("/");
+    res.status(201).json(newProduct);
   } catch (error) {
     next(error);
   }
@@ -57,7 +97,7 @@ router.put("/:pid", async (req, res, next) => {
     const { pid } = req.params;
     const update = req.body;
 
-    const product = await productModel.findOneAndUpdate(pid, update, {
+    const product = await productModel.findByIdAndUpdate(pid, update, {
       new: true,
     });
 
@@ -70,7 +110,7 @@ router.put("/:pid", async (req, res, next) => {
 router.delete("/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
-    const product = await productModel.findOneAndDelete(pid);
+    const product = await productModel.findByIdAndDelete(pid);
     res.status(200).json(product);
   } catch (error) {
     next(error);

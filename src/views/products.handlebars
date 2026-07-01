@@ -8,11 +8,10 @@
  {{#each pagination.docs}}
 
 
-  <li>
-    <p>{{this.title}}</p>
-    <p>{{this.price}}</p>
-    <p>{{this.description}}</p>
-    <p>{{this.stock}}</p>
+  <li class="product-card">
+    <p class="title">{{this.title}}</p>
+    <p class="price">${{this.price}}</p>
+    <p class="description">{{this.description}}</p>
 
     <img
       src="/img/products/{{this.thumbnails.[0]}}"
@@ -20,14 +19,17 @@
       width="200"
     >
 
-    <a href="/products/{{this._id}}">Ver detalle</a>
+    <a class="btn-detail" href="/products/{{this._id}}">Ver detalle</a>
   </li>
 
 
  {{/each}}
 </ul>
+
+</div>
+<div class="pagination">
 {{#if pagination.hasPrevPage}}
-  <a href="/products?page={{pagination.prevPage}}&limit={{pagination.limit}}">
+  <a href="/products?page={{pagination.prevPage}}&limit={{pagination.limit}}&query={{query}}&sort={{sort}}">
     ← Anterior
   </a>
 {{/if}}
@@ -35,7 +37,7 @@
 Página {{pagination.page}} de {{pagination.totalPages}}
 -
 {{#if pagination.hasNextPage}}
-  <a href="/products?page={{pagination.nextPage}}&limit={{pagination.limit}}">
+  <a href="/products?page={{pagination.nextPage}}&limit={{pagination.limit}}&query={{query}}&sort={{sort}}">
     Siguiente →
   </a>
 {{/if}}

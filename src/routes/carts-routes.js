@@ -25,7 +25,7 @@ router.get("/:cid", async (req, res, next) => {
         message: "Carrito no encontrado",
       });
     }
-    res.status(202).json(requiredCart);
+    res.status(200).json(requiredCart);
   } catch (error) {
     next(error);
   }

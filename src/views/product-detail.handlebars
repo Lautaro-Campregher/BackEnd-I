@@ -1,21 +1,26 @@
+<link rel="stylesheet" href="/css/product-detail.css" />
 <h1>{{product.title}}</h1>
 
-<img
-  src="/img/products/{{product.thumbnails.[0]}}"
-  alt="{{product.title}}"
-  width="300"
-/>
+<div class="product-detail">
 
-<p>Marca:{{product.brand}}</p>
-<p>Precio:${{product.price}}</p>
-<p>Descripción:{{product.description}}</p>
-<p>Categoría:{{product.category}}</p>
-<p>Stock :{{product.stock}}</p>
+  <img src="/img/products/{{product.thumbnails.[0]}}" alt="{{product.title}}" />
 
-<button id="addToCart" data-product-id="{{product._id}}">
-  Agregar al carrito
-</button>
+  <div class="info">
+    <p><strong>Marca:</strong> {{product.brand}}</p>
+    <p>${{product.price}}</p>
+    <p><strong>Descripción:</strong> {{product.description}}</p>
+    <p><strong>Categoría:</strong> {{product.category}}</p>
+    <p><strong>Stock:</strong> {{product.stock}}</p>
 
-<a href="/products">Volver</a>
+    <button id="addToCart" data-product-id="{{product._id}}">
+      Agregar al carrito
+    </button>
+
+    <a class="back" href="/products">
+      ← Volver al catálogo
+    </a>
+  </div>
+
+</div>
 
 <script src="/js/product-detail.js"></script>

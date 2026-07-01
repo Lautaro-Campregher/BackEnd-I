@@ -16,19 +16,42 @@ router.get("/form", (req, res) => {
 
 router.get("/products", async (req, res, next) => {
   try {
-    const { page } = req.query;
-    const pagination = await productModel.find({}).paginate({
-      limit: 2,
-      lean: true,
+    const { page = 1, limit = 10, sort, query } = req.query;
+
+    const filter = {};
+
+    if (query) {
+      if (query === "true" || query === "false") {
+        filter.status = query === "true";
+      } else {
+        filter.category = query;
+      }
+    }
+
+    const options = {
       page,
-    });
+      limit,
+      lean: true,
+    };
+
+    if (sort) {
+      options.sort = {
+        price: sort === "asc" ? 1 : -1,
+      };
+    }
+
+    const pagination = await productModel.paginate(filter, options);
 
     res.render("products", {
       pagination,
+      query,
+      sort,
       message: "Catalogo de Productos",
       styles: "/css/products.css",
     });
-  } catch (error) {}
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.get("/products/:pid", async (req, res, next) => {

@@ -1,0 +1,32 @@
+.navbar {
+  background: #1976d2;
+  padding: 15px 30px;
+  margin-bottom: 30px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  color: #ffd54f;
+}
+
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
