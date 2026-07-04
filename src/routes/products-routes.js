@@ -1,5 +1,4 @@
 import { Router, json, urlencoded } from "express";
-import ProductManager from "../dao/ProductManager.js";
 import { productModel } from "../models/products.model.js";
 import { uploader } from "../utils.js";
 
@@ -50,7 +49,7 @@ router.get("/", async (req, res, next) => {
         : null,
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 });
 
@@ -89,7 +88,10 @@ router.post("/", uploader.single("thumbnail"), async (req, res, next) => {
     const products = await productModel.find({}).lean();
 
     io.emit("productsUpdated", products);
-    console.log("Evento productsUpdated enviado");
+
+    if (req.headers.accept.includes("text/html")) {
+      return res.redirect("/products");
+    }
 
     res.status(201).json(newProduct);
   } catch (error) {

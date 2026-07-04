@@ -16,6 +16,4 @@ button.addEventListener("click", async () => {
   }
 
   const cart = await response.json();
-
-  console.log(cart);
 });

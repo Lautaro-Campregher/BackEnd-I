@@ -2,7 +2,30 @@
 {{>navbar}}
 
 <h1>{{message}}</h1>
+<form action="/products" method="GET" class="filters">
 
+  <select name="query">
+    <option value="">Todas las categorías</option>
+    <option value="Computación">Computación</option>
+    <option value="Accesorios">Accesorios</option>
+    <option value="Televisores">Televisores</option>
+    <option value="Wearables">Wearables</option>
+    <option value="Monitores">Monitores</option>
+    <option value="Audio">Audio</option>
+    <option value="Celulares">Celulares</option>
+  </select>
+
+  <select name="sort">
+    <option value="">Ordenar por precio</option>
+    <option value="asc">Menor precio</option>
+    <option value="desc">Mayor precio</option>
+  </select>
+
+  <button type="submit">
+    Aplicar filtros
+  </button>
+
+</form>
 <div id="products-container">
 <ul>
  {{#each pagination.docs}}

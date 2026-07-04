@@ -1,16 +1,8 @@
-console.log("products.js cargado");
-
 const socket = io();
-
-socket.on("connect", () => {
-  console.log("Socket conectado");
-});
 
 const container = document.getElementById("products-container");
 
 socket.on("productsUpdated", (products) => {
-  console.log("Evento recibido", products);
-
   container.innerHTML = "";
 
   const html = products

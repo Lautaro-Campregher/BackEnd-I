@@ -1,7 +1,6 @@
 import express from "express";
 import { root } from "./utils.js";
 import { engine } from "express-handlebars";
-import ProductManager from "./dao/ProductManager.js";
 import productsRoutes from "./routes/products-routes.js";
 import viewsRoutes from "./routes/views-routes.js";
 import cartsRoutes from "./routes/carts-routes.js";
@@ -24,9 +23,9 @@ app.set("view engine", "handlebars");
 app.set("views", root + "/views");
 
 const httpServer = app.listen(8080, () => {
-  console.log("server ok");
+  console.log("Servidor iniciado en puerto 8080");
   connectToMongo()
-    .then(() => console.log("Conectado a DB"))
+    .then(() => console.log("MongoDB conectado"))
     .catch(console.error);
 });
 
@@ -34,7 +33,11 @@ const io = new Server(httpServer);
 app.set("io", io);
 
 io.on("connection", (socket) => {
-  console.log("Cliente conectado");
+  console.log(`Cliente conectado: ${socket.id}`);
+
+  socket.on("disconnect", () => {
+    console.log(`Cliente desconectado: ${socket.id}`);
+  });
 });
 
 app.use(express.json());
