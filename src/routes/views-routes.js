@@ -8,12 +8,6 @@ router.get("/", (req, res) => {
   res.redirect("/products");
 });
 
-router.get("/form", (req, res) => {
-  res.render("products-form", {
-    styles: "/css/form.css",
-  });
-});
-
 router.get("/products", async (req, res, next) => {
   try {
     const { page = 1, limit = 10, sort, query } = req.query;
